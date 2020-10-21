@@ -1,0 +1,18 @@
+$fontFamily: 'PT Sans', sans-serif;
+
+
+$wrapperWidth:      1110px;
+$wrapperPadding:    15px;
+
+$color-primary:     #ffffff;
+$color-secondary:   gray;
+$color-bg:          #000000;
+
+$header-top-height: 43px;
+$header-center-height: 80px;
+$header-bottom-height: calc(100vh - #{$header-top-height} - #{$header-center-height});
+
+$color-danger:      #D41131;
+$color-success:     #3FD411;
+$color-warning:     #D8AE1C;
+
