@@ -1,0 +1,15 @@
+.brands {
+    background: #0F0F0F;
+    padding: 60px 0 80px;
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    &__item {
+        user-select: none;
+    }
+}

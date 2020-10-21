@@ -1,0 +1,26 @@
+.swiper-container {
+    padding-bottom: 30px;
+
+    .swiper-pagination {
+        padding-top: 30px;
+    }
+
+    .swiper-pagination-bullet {
+        border: 1px solid #fff;
+        width: 6px;
+        height: 6px;
+    }
+
+    .swiper-pagination-bullet-active {
+        border: 1px solid #000;
+        background: #f1f1f1;
+    }
+
+    .swiper-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        display: inline-block;
+    }
+}
