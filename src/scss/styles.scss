@@ -1,0 +1,13 @@
+@import 'mixins';
+@import 'vars';
+@import 'libs';
+@import 'fonts';
+@import 'base';
+
+@import 'layouts.scss';
+
+@import 'blocks/header';
+@import 'blocks/news';
+@import 'blocks/catalog';
+
+@import 'media';

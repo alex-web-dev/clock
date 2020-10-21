@@ -1,0 +1,159 @@
+.header {
+    &__top {
+        background: $color-bg;
+
+        &-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        margin-left: -15px;
+    }
+
+    &__contacts-item {
+        margin-left: 15px;
+        padding-right: 15px;
+        color: $color-secondary;
+        font-size: 12px;
+
+        &:not(:last-child) {
+            border-right: 1px solid $color-secondary;
+        }
+
+        &_phone {
+            position: relative;
+            padding-left: 31px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: url('../images/icons/icons.svg#phone');
+                width: 16px;
+                height: 16px;
+                display: block;
+                color: gray;
+            }
+        }
+    }
+
+    &__login {
+        color: $color-secondary;
+        font-size: 12px;
+        position: relative;
+        padding-left: 22px;
+
+        &:before {
+            content: '';
+            background-image: url('../images/icons/icons.svg#login');
+            width: 14px;
+            height: 14px;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    &__center {
+        background: #0F0F0F;
+
+        &-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__menu {
+        margin-left: auto;
+        margin-right: 60px;
+    }
+
+    &__cart-btn {
+        margin-right: 40px;
+    }
+
+    &__bottom {
+        background-color: #0f0f0f;
+        background-image: url('../images/header.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: $header-bottom-height;
+        display: flex;  
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 600px;
+    }
+
+    &__main-inf {
+        height: 320px;
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid $color-primary;
+        margin: 0 auto;
+    }
+
+    &__title {
+        color: $color-primary;
+        font-size: 64px;
+        font-family: 'PostNoBillsJaffna', sans-serif;
+        border-bottom: 2px solid $color-primary;
+        padding-bottom: 4px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    &__title-add {
+        color: $color-primary;
+        text-transform: uppercase; 
+        font-size: 22px;
+    }   
+
+    &__add-inf {
+        color: $color-primary;
+        max-width: 730px;
+        margin: 80px auto 0;
+        text-transform: uppercase;
+        line-height: 24px;    
+        text-align: center;
+    }
+}
+
+.logo {
+    font-size: 36px;
+    text-transform: uppercase;
+    font-family: 'PostNoBillsJaffna', sans-serif;
+}
+
+.menu {
+    &__list {
+        display: flex;
+        margin: 0;
+    }
+
+    &__link {
+        text-transform: uppercase;
+        padding: 32px 20px;
+        display: block;
+        color: $color-secondary;
+        font-size: 14px;
+
+        &:hover {
+            background: #1F1F1F;
+            color: $color-primary;
+        }
+    }
+}
