@@ -75,3 +75,34 @@
         color: $color-primary;
     }
 }
+
+.mailing {
+    display: flex;
+
+    &__input {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.4);
+        padding: 15px;
+        outline: none;
+        border: none;
+
+        &::placeholder {
+            color: #d9d9d9;
+        }
+    }
+
+    &__btn {
+        background: $color-bg;
+        color: $color-primary;
+        font-size: 14px;
+        text-transform: uppercase;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        outline: none;
+        transition: background .2s;
+        &:active {
+            background: #222;
+        }
+    }
+}
