@@ -1,0 +1,61 @@
+.footer {
+    &__top {
+        padding: 80px 0 100px;
+        background: url('../images/footer.jpg') center center no-repeat;
+        background-size: cover;
+
+        &-content {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 -15px;
+        }
+    }
+
+    &__column {
+        margin: 0 15px;
+        width: calc(100% / 12 * 4 - 30px);
+    }
+
+    &__bottom {
+        padding: 17px 0;
+        background: $color-bg;
+    }
+
+    &__title {
+        font-family: 'PlayFair Display', sans-serif;
+        font-size: 24px;
+        color: $color-primary;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: $color-primary;
+        line-height: 21px;
+    }
+
+    &__categories {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+    }
+
+    &__category {
+        margin: 10px;
+        padding: 10px 20px;
+        color: #d0d0d0;
+        font-size: 14px;
+        text-transform: lowercase;
+        background: $color-bg;
+    }
+
+    &__mailing {
+        margin-top: 37px;
+    }
+
+    &__copyright {
+        color: #d0d0d0;
+        font-size: 12px;
+    }
+}
