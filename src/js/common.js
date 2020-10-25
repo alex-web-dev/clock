@@ -27,5 +27,3 @@ window.addEventListener('load', function() {
     });
   });
 });
-
-//~1600px news

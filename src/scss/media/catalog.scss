@@ -1,0 +1,54 @@
+.catalog {
+    @media screen and (max-width: 1200px) {
+        & {
+            padding-top: 60px;
+            padding-bottom: 75px;
+        }
+
+        &__product {
+            width: calc(100% / 12 * 4 - 30px);
+        }
+    }
+
+    @media screen and (max-width: 780px) {
+        & {
+            padding-top: 30px;
+            padding-bottom: 40px;
+        }
+
+        &__title2 {
+            margin-bottom: 30px;
+        }
+
+        &__products {
+            margin: 0 -10px;
+        }
+
+        &__product {
+            width: calc(100% / 12 * 6 - 20px);
+            margin: 15px 10px;
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        &__product {
+            .product__bg {
+                height: 225px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 440px) {
+        &__product {
+            .product__name {
+                font-size: 13px;
+            }
+
+            .product__price {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+//Доделать каталог (размеры шрифтов, высота изображения), доделать бренды, подвал

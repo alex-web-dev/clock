@@ -4,11 +4,12 @@
     background: $color-bg;
 
     &__products {
-        margin: 0 -11px;
+        margin: 0 -15px;
     }
 
     &__product {
-        margin: 20px 11px;
+        width: calc(100% / 12 * 3 - 30px);
+        margin: 20px 15px;
     }
 
     &__title2 {

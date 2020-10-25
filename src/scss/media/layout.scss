@@ -1,0 +1,27 @@
+@media screen and (max-width: 1200px) {
+    .title2 {
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    html, body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    html, body {
+        font-size: 12px;
+    }
+
+    .title2 {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    html, body {
+        font-size: 10px;
+    }
+}
