@@ -106,3 +106,67 @@
         }
     }
 }
+
+.icon {
+    &_enter {
+        fill: red;
+    }
+}
+
+.toggle-menu {
+    $toggleColor: #fff;
+    $toggleLineHeight: 4px;
+    $toggleLineWidth: 30px;
+    $toggleBorderRadius: 2px;
+    $toggleTransition: .3s;
+    
+    display: none;
+    height: calc(#{$toggleLineHeight} * 5);
+    position: relative;
+    width: $toggleLineWidth;
+    cursor: pointer;
+    background: none;
+    border: none;
+  
+    &:focus {
+      outline: none;
+    } 
+  
+    &__lines {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      height: $toggleLineHeight;
+      width: $toggleLineWidth;
+      background: $toggleColor;
+      border-radius: $toggleBorderRadius;
+      transition: width $toggleTransition;
+  
+      &:before {
+        content: '';
+        position: absolute;
+        top: -200%;
+        right: 0;
+        background: $toggleColor;
+        height: $toggleLineHeight;
+        width: $toggleLineWidth;
+        border-radius: $toggleBorderRadius;
+        transition: transform $toggleTransition;
+        transform: rotate(0deg);
+  
+      }
+  
+      &:after {
+        content: '';
+        position: absolute;
+        top: 200%;
+        right: 0;
+        background: $toggleColor;
+        height: $toggleLineHeight;
+        width: $toggleLineWidth;
+        border-radius: $toggleBorderRadius;
+        transition: transform $toggleTransition;
+      }
+    }
+  }

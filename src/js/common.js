@@ -1,10 +1,8 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
+Swiper.use([Pagination]);
 
-window.onload = function() {
-  Swiper.use([Pagination]);
-  console.log(document.querySelector('.swiper-container'));
-  
-  var mySwiper = new Swiper('.swiper-container', {
+window.addEventListener('load', function() {
+  const mySwiper = new Swiper('.swiper-container', {
     direction: 'horizontal',
     loop: true,
     slidesPerView: 4,
@@ -19,4 +17,15 @@ window.onload = function() {
       },
     },
   });
-}
+
+  const menuToggles = document.querySelectorAll('.toggle-menu');
+  
+  menuToggles.forEach(toggle => {
+    toggle.addEventListener('click', e => {
+      const menu = toggle.closest('.menu');
+      menu.classList.toggle('menu_active');
+    });
+  });
+});
+
+//~1600px news
