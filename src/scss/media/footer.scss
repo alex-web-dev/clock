@@ -1,0 +1,40 @@
+.footer {
+    @media screen and (max-width: 1200px) {
+        &__top {
+            padding: 40px 0 50px;
+
+            &-content {
+                flex-wrap: wrap;
+            }
+        }
+        
+        &__column {
+            width: calc(100% / 12 * 6 - 30px);
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        &__top {
+            padding: 20px 0 25px;
+
+            &-content {
+                margin: 0;
+            }
+        }
+
+        &__column {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: center;
+        }
+
+        &__categories {
+            justify-content: center;
+        }
+
+        &__mailing {
+            justify-content: center;
+        }
+    }
+}
