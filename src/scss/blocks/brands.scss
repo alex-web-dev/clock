@@ -11,5 +11,8 @@
 
     &__item {
         user-select: none;
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
     }
 }

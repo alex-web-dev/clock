@@ -83,8 +83,36 @@
         margin-right: 60px;
     }
 
-    &__cart-btn {
-        margin-right: 40px;
+    &__search {
+        margin-left: auto;
+
+        &-toggle {
+            position: relative;
+            display: none;
+        }
+
+        &-field {
+            width: 300px;
+            padding: 10px;
+            background: #0f0f0f;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            outline: none;
+            color: #fff;
+            transition: border .2s, color .2s;
+    
+            &::placeholder {
+                color: #aaa;
+            }
+            
+            &:focus {
+                border: 1px solid #ddd;
+    
+                &::placeholder {
+                    color: #ddd;
+                }
+            }
+        }
     }
 
     &__bottom {
