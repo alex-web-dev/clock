@@ -1,4 +1,5 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
+import './corsine';
 Swiper.use([Pagination]);
 
 window.addEventListener('load', function() {
