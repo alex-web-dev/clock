@@ -60,11 +60,16 @@
         object-fit: cover;
     }
 
+    &__inf {
+        position: relative;
+    }
+
     &__name {
         margin-top: 25px;
         font-size: 18px;
         font-family: 'Playfair Display', sans-serif;
         color: $color-primary;
+        padding-right: 44px;
     }
 
     &__price {
@@ -72,6 +77,26 @@
         font-family: 'Playfair Display', sans-serif;
         font-weight: 700;
         color: $color-primary;
+    }
+
+    &__btn {
+        background: none;
+        border: 1px solid #fff;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 3px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        outline: none;
+
+        &-icon {
+            width: 22px;
+        }
     }
 }
 
