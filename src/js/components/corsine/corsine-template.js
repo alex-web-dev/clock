@@ -1,46 +1,22 @@
-import {addToCorsine, dltFromCorsine, getCorsine} from './corsine-storage';
+import {addToStorage, dltFromStorage, getStorage, hasStorageItem} from './corsine-storage';
+const corsine = document.querySelector('.corsine');
 
-window.addEventListener('load', () => {
-  const $addCorsineBtns = document.querySelectorAll('.product__btn-icon');
-  $addCorsineBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const product = btn.closest('.product');
-      const corsineItemData = {
-        id: product.dataset.id,
-        name: product.querySelector('.product__name').innerHTML,
-        thumb: product.querySelector('.product__img').getAttribute('src'),
-        price: product.querySelector('.product__price-value').innerHTML,
-        count: 1
-      }
-      
-      addItemToCorsineTemplate(corsineItemData)
-    });
-  });
-
-  const $corsine = document.querySelector('.corsine');
-  const $corsineList = $corsine.querySelector('.corsine__list');
-  const corsineStorage = getCorsine();
+export function incItem(id) {
+  const $item = corsine.querySelector(`.corsine__item[data-id="${id}"]`);
+  const $itemCount = $item.querySelector('.corsine__item-count-value');
   
-  if(corsineStorage) {
-    corsineStorage.forEach(itemData => {
-      const $corsineItem = createTemplateCorsineItem(itemData);
-      
-      $corsineList.append($corsineItem);
-    });
-  }
-});
+  $itemCount.innerHTML = ++$itemCount.innerHTML;
+}
 
-function addItemToCorsineTemplate(data) {
-  addToCorsine(data);
-  const $corsineItem = createTemplateCorsineItem(data);
+export function appendItem(data) {
+  const $corsineItem = createItem(data);
   const $corsine = document.querySelector('.corsine');
   const $corsineList = $corsine.querySelector('.corsine__list');
 
   $corsineList.appendChild($corsineItem);
 }
 
-function createTemplateCorsineItem(itemData) {
-
+function createItem(itemData) {
   const $corsineItem = document.createElement('div');
   $corsineItem.className = 'corsine__item';
   $corsineItem.setAttribute('data-id', itemData.id);
@@ -52,8 +28,8 @@ function createTemplateCorsineItem(itemData) {
   $itemDltBtn.addEventListener('click', () => {
     const $corsineItem = $itemDltBtn.closest('.corsine__item');
     const itemId = $corsineItem.dataset.id;
-    dltFromCorsine(itemId);
-    dltTemplateCorsineItem(itemId);
+    dltFromStorage(itemId);
+    dltItem(itemId);
   });
 
   $corsineItem.innerHTML = `
@@ -71,9 +47,32 @@ function createTemplateCorsineItem(itemData) {
   return $corsineItem;
 }
 
-function dltTemplateCorsineItem(id) {
+function dltItem(id) {
   const $corsine = document.querySelector('.corsine');
   const $corsineItem = $corsine.querySelector(`.corsine__item[data-id="${id}"]`);
 
   $corsineItem.remove();
+}
+
+export function getProductData($product) {
+  return {
+    id: $product.dataset.id,
+    name: $product.querySelector('.product__name').innerHTML,
+    thumb: $product.querySelector('.product__img').getAttribute('src'),
+    price: $product.querySelector('.product__price-value').innerHTML,
+    count: 1
+  }
+}
+
+export function createCorsine() {
+  const $corsine = document.querySelector('.corsine');
+  const $corsineList = $corsine.querySelector('.corsine__list');
+  const corsineStorage = getStorage();
+  
+  if(corsineStorage) {
+    corsineStorage.forEach(itemData => {
+      const $corsineItem = createItem(itemData);
+      $corsineList.append($corsineItem);
+    });
+  }
 }

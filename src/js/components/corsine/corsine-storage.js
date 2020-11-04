@@ -1,21 +1,20 @@
-export function addToCorsine(item) {
-  let corsine = getCorsine();
+export function addToStorage(item) {
+  let corsine = getStorage();
   
   if (!corsine) {
     corsine = [];
     corsine.push(item);
-  } else if (hasCorsineItem(item.id)) {
-    corsine = incCorsineItem(item.id);
+  } else if (hasStorageItem(item.id)) {
+    corsine = incStorageItem(item.id);
   } else {
     corsine.push(item);
   }
 
-  setCorsine(corsine);
-  console.log(getCorsine());
+  setStorage(corsine);
 }
 
-export function dltFromCorsine(id) {
-  const corsine = getCorsine();
+export function dltFromStorage(id) {
+  const corsine = getStorage();
   if(!corsine) {
     return;
   }  
@@ -24,11 +23,11 @@ export function dltFromCorsine(id) {
     return item.id !== id;
   });
 
-  setCorsine(newCorsine);
+  setStorage(newCorsine);
 }
 
-export function incCorsineItem(id) {
-  const corsine = getCorsine();
+export function incStorageItem(id) {
+  const corsine = getStorage();
   const newCorsine = corsine.filter(item => {
     if (item.id === id) {
       item.count++;
@@ -41,8 +40,8 @@ export function incCorsineItem(id) {
   
 }
 
-export function hasCorsineItem(id) {
-  const corsine = getCorsine();
+export function hasStorageItem(id) {
+  const corsine = getStorage();
 
   for (let item of corsine) {
     if(item.id === id) {
@@ -53,21 +52,21 @@ export function hasCorsineItem(id) {
   return false;
 }
 
-export function setCorsine(corsine) {
+export function setStorage(corsine) {
   localStorage.setItem('corsine', JSON.stringify(corsine));
 }
 
-export function getCorsine() {
+export function getStorage() {
   const corsine = JSON.parse(localStorage.getItem('corsine'));
 
   return corsine;
 }
 
-export function clearCorsine() {
+export function clearStorage() {
   localStorage.removeItem('corsine');
 }
 
-export function isEmptyCorsine() {
+export function isStorageEmpty() {
   if (!localStorage.getItem('corsine')) {
     return false;
   }
