@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, {Pagination} from 'swiper';
 Swiper.use([Pagination]);
 
 window.addEventListener('load', function() {
