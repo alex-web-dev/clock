@@ -1,9 +1,4 @@
-import './corsine';
-import './brands';
-
 window.addEventListener('load', function() {
-
-
   const menuToggles = document.querySelectorAll('.toggle-menu');
   
   menuToggles.forEach(toggle => {

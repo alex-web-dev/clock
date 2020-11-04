@@ -150,10 +150,6 @@
                 display: block;
             }
         }
-
-        &__add-inf {
-            margin-top: 40px;
-        }
     }
 
     @media screen and (max-width: 540px) {
@@ -178,23 +174,5 @@
                 }
             }
         }
-
-        &__main-inf {
-            width: 260px;
-            height: 260px;
-        }
-
-        &__title {
-            font-size: 50px;
-        }
-
-        &__title-add {
-            font-size: 17px;
-        }
-
-        &__add-inf {
-            font-size: 14px;
-        }
     }
-    
 }
