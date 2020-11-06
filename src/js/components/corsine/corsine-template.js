@@ -1,4 +1,4 @@
-import {addToStorage, dltFromStorage, getStorage, hasStorageItem} from './corsine-storage';
+import {dltFromStorage, getStorage, getStorageTotal, getStorageCount} from './corsine-storage';
 const corsine = document.querySelector('.corsine');
 
 export function incItem(id) {
@@ -27,7 +27,8 @@ function createItem(itemData) {
 
   $itemDltBtn.addEventListener('click', () => {
     const $corsineItem = $itemDltBtn.closest('.corsine__item');
-    const itemId = $corsineItem.dataset.id;
+    const itemId = +$corsineItem.dataset.id;
+    
     dltFromStorage(itemId);
     dltItem(itemId);
   });
@@ -47,32 +48,40 @@ function createItem(itemData) {
   return $corsineItem;
 }
 
+export function updateTemplate() {
+  const total = getStorageTotal();
+  const count = getStorageCount();
+
+  const $count = document.querySelector('.corsine__count-value');
+  const $total = document.querySelector('.corsine__total-value');
+
+  $count.innerHTML = count;
+  $total.innerHTML = total;
+}
+
 function dltItem(id) {
   const $corsine = document.querySelector('.corsine');
   const $corsineItem = $corsine.querySelector(`.corsine__item[data-id="${id}"]`);
 
   $corsineItem.remove();
-}
 
-export function getProductData($product) {
-  return {
-    id: $product.dataset.id,
-    name: $product.querySelector('.product__name').innerHTML,
-    thumb: $product.querySelector('.product__img').getAttribute('src'),
-    price: $product.querySelector('.product__price-value').innerHTML,
-    count: 1
-  }
+  updateTemplate();
 }
 
 export function createCorsine() {
   const $corsine = document.querySelector('.corsine');
   const $corsineList = $corsine.querySelector('.corsine__list');
-  const corsineStorage = getStorage();
-  
-  if(corsineStorage) {
-    corsineStorage.forEach(itemData => {
-      const $corsineItem = createItem(itemData);
-      $corsineList.append($corsineItem);
-    });
+  const storage = getStorage();
+
+  if(!storage) {
+    return;
   }
+  
+  storage.forEach(itemData => {
+    const $corsineItem = createItem(itemData);
+    $corsineList.append($corsineItem);
+  });
+  
+  updateTemplate();
+
 }

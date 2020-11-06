@@ -1,6 +1,5 @@
 export function addToStorage(item) {
   let corsine = getStorage();
-  
   if (!corsine) {
     corsine = [];
     corsine.push(item);
@@ -14,16 +13,17 @@ export function addToStorage(item) {
 }
 
 export function dltFromStorage(id) {
-  const corsine = getStorage();
-  if(!corsine) {
+  const storage = getStorage();
+
+  if(!storage) {
     return;
   }  
 
-  const newCorsine = corsine.filter((item) => {
+  const newStorage = storage.filter((item) => {
     return item.id !== id;
   });
 
-  setStorage(newCorsine);
+  setStorage(newStorage);
 }
 
 export function incStorageItem(id) {
@@ -41,9 +41,13 @@ export function incStorageItem(id) {
 }
 
 export function hasStorageItem(id) {
-  const corsine = getStorage();
+  const storage = getStorage();
 
-  for (let item of corsine) {
+  if(!storage) {
+    return;
+  }
+
+  for (let item of storage) {
     if(item.id === id) {
       return true;
     }
@@ -57,9 +61,9 @@ export function setStorage(corsine) {
 }
 
 export function getStorage() {
-  const corsine = JSON.parse(localStorage.getItem('corsine'));
+  const storage = JSON.parse(localStorage.getItem('corsine'));
 
-  return corsine;
+  return storage;
 }
 
 export function clearStorage() {
@@ -72,4 +76,34 @@ export function isStorageEmpty() {
   }
 
   return true;
+}
+
+export function getStorageTotal() {
+  const storage = getStorage();
+  
+  if(!storage) {
+    return;
+  }
+
+  let totalPrice = 0;
+  storage.forEach(item => {
+    totalPrice += item.price * item.count;
+  });
+
+  return totalPrice;
+}
+
+export function getStorageCount() {
+  const storage = getStorage();
+  
+  if(!storage) {
+    return;
+  }
+
+  let count = 0;
+  storage.forEach(item => {
+    count += item.count;
+  });
+
+  return count;
 }
