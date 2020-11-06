@@ -11,7 +11,6 @@ window.addEventListener('load', function() {
   const $searchToggle = document.querySelector('.header__search-toggle');
   $searchToggle.addEventListener('click', function() {
     const $searchParent = $searchToggle.closest('.header__search');
-    console.log($searchParent);
 
     $searchParent.classList.toggle('header__search_active');
   });
