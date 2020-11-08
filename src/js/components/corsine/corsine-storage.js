@@ -12,7 +12,7 @@ export function addToStorage(item) {
   setStorage(corsine);
 }
 
-export function dltFromStorage(id) {
+export function deleteFromStorage(id) {
   const storage = getStorage();
 
   if(!storage) {

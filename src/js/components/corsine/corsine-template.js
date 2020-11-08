@@ -1,4 +1,4 @@
-import {dltFromStorage, getStorage, getStorageTotal, getStorageCount} from './corsine-storage';
+import {deleteFromStorage, getStorage, getStorageTotal, getStorageCount} from './corsine-storage';
 const corsine = document.querySelector('.corsine');
 
 export function incItem(id) {
@@ -9,16 +9,19 @@ export function incItem(id) {
 }
 
 export function appendItem(data) {
-  const $corsineItem = createItem(data);
+  const $corsineItem = getItemTemplate(data);
   const $corsine = document.querySelector('.corsine');
   const $corsineList = $corsine.querySelector('.corsine__list');
 
   $corsineList.appendChild($corsineItem);
+  setTimeout(() => {
+    $corsineItem.classList.remove('corsine__item_hide');
+  });
 }
 
-function createItem(itemData) {
+function getItemTemplate(itemData) {
   const $corsineItem = document.createElement('div');
-  $corsineItem.className = 'corsine__item';
+  $corsineItem.className = 'corsine__item corsine__item_hide';
   $corsineItem.setAttribute('data-id', itemData.id);
 
   const $itemDltBtn = document.createElement('button');
@@ -29,8 +32,8 @@ function createItem(itemData) {
     const $corsineItem = $itemDltBtn.closest('.corsine__item');
     const itemId = +$corsineItem.dataset.id;
     
-    dltFromStorage(itemId);
-    dltItem(itemId);
+    deleteFromStorage(itemId);
+    deleteItem(itemId);
   });
 
   $corsineItem.innerHTML = `
@@ -59,11 +62,14 @@ export function updateTemplate() {
   $total.innerHTML = total;
 }
 
-function dltItem(id) {
+function deleteItem(id) {
   const $corsine = document.querySelector('.corsine');
   const $corsineItem = $corsine.querySelector(`.corsine__item[data-id="${id}"]`);
 
-  $corsineItem.remove();
+  $corsineItem.classList.add('corsine__item_hide');
+  $corsineItem.addEventListener('transitionend', () => {
+    $corsineItem.remove();
+  });
 
   updateTemplate();
 }
@@ -78,10 +84,8 @@ export function createCorsine() {
   }
   
   storage.forEach(itemData => {
-    const $corsineItem = createItem(itemData);
-    $corsineList.append($corsineItem);
+    appendItem(itemData);
   });
   
   updateTemplate();
-
 }
