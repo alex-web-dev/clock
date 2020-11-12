@@ -16,6 +16,16 @@
         color: #191B1C;
         cursor: pointer;
     }
+
+    &_black {
+        background: #000;
+        color: #ffffff;
+
+        &:hover {
+            background: #000;
+            color: #ffffff;
+        }
+    }
 }
 
 .title2 {

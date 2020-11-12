@@ -1,10 +1,10 @@
 import {appendItem, incItem, updateTemplate} from '../corsine/corsine-template';
-import {hasStorageItem, addToStorage} from '../corsine/corsine-storage';
+import {hasStorageItem, addToStorage, getStorage} from '../corsine/corsine-storage';
 
 window.addEventListener('load', function() {
   const $addCorsineBtns = document.querySelectorAll('.product__btn-icon');
   $addCorsineBtns.forEach(btn => {
-    btn.addEventListener('click', addCorsineItemEvent);
+    btn.addEventListener('click', addCorsineItemEvent);    
   });
 });
 
