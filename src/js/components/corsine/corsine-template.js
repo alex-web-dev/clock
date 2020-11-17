@@ -1,3 +1,4 @@
+import {addOrderTemplate} from '../order/order-template';
 import {deleteFromStorage, getStorage, getStorageTotal, getStorageCount} from './corsine-storage';
 const corsine = document.querySelector('.corsine');
 
@@ -82,10 +83,16 @@ export function createCorsine() {
   if(!storage) {
     return;
   }
-  
+
   storage.forEach(itemData => {
     appendItem(itemData);
   });
+
+  const $corsineSubmit = $corsine.querySelector('.corsine__buy');
+  $corsineSubmit.addEventListener('click', () => {
+    addOrderTemplate();
+  });
+  
   
   updateTemplate();
 }
