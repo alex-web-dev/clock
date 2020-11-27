@@ -1,19 +1,19 @@
 $fontFamily: 'PT Sans', sans-serif;
 
 
-$wrapperWidth:      1140px;
-$wrapperPadding:    15px;
+$wrapperWidth:         1280px;
+$wrapperPadding:       15px;
+ 
+$color-primary:      #ffffff;
+$color-secondary:    gray;
+$color-bg:           #000000;
+$color-neutral:      #f1f1f1;
 
-$color-primary:     #ffffff;
-$color-secondary:   gray;
-$color-bg:          #000000;
-$color-neutral:     #f1f1f1;
-
-$header-top-height: 43px;
+$header-top-height:    43px;
 $header-center-height: 80px;
 $header-bottom-height: calc(100vh - #{$header-top-height} - #{$header-center-height});
 
-$color-danger:      #D41131;
-$color-success:     #3FD411;
-$color-warning:     #D8AE1C;
+$color-danger:       #D41131;
+$color-success:      #3FD411;
+$color-warning:      #D8AE1C;
 
