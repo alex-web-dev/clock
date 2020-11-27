@@ -1,9 +1,17 @@
 import {addOrderTemplate} from '../order/order-template';
 import {deleteFromStorage, getStorage, getStorageTotal, getStorageCount} from './corsine-storage';
-const corsine = document.querySelector('.corsine');
 
+const $corsine = document.querySelector('.corsine');
+const $corsineToggle = $corsine.querySelector('.corsine__toggle');
+console.log($corsineToggle);
+
+$corsineToggle.addEventListener('click', toggleCorsine);
+
+function toggleCorsine() {
+  $corsine.classList.toggle('corsine_active');
+}
 export function incItem(id) {
-  const $item = corsine.querySelector(`.corsine__item[data-id="${id}"]`);
+  const $item = $corsine.querySelector(`.corsine__item[data-id="${id}"]`);
   const $itemCount = $item.querySelector('.corsine__item-count-value');
   
   $itemCount.innerHTML = ++$itemCount.innerHTML;
@@ -11,7 +19,6 @@ export function incItem(id) {
 
 export function appendItem(data) {
   const $corsineItem = getItemTemplate(data);
-  const $corsine = document.querySelector('.corsine');
   const $corsineList = $corsine.querySelector('.corsine__list');
 
   $corsineList.appendChild($corsineItem);
@@ -64,9 +71,7 @@ export function updateTemplate() {
 }
 
 function deleteItem(id) {
-  const $corsine = document.querySelector('.corsine');
   const $corsineItem = $corsine.querySelector(`.corsine__item[data-id="${id}"]`);
-
   $corsineItem.classList.add('corsine__item_hide');
   $corsineItem.addEventListener('transitionend', () => {
     $corsineItem.remove();
@@ -76,10 +81,7 @@ function deleteItem(id) {
 }
 
 export function createCorsine() {
-  const $corsine = document.querySelector('.corsine');
-  const $corsineList = $corsine.querySelector('.corsine__list');
   const storage = getStorage();
-
   if(!storage) {
     return;
   }
@@ -92,7 +94,6 @@ export function createCorsine() {
   $corsineSubmit.addEventListener('click', () => {
     addOrderTemplate();
   });
-  
   
   updateTemplate();
 }

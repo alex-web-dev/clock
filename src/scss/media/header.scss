@@ -1,34 +1,5 @@
 .header {
     @media screen and (max-width: 1200px) {
-        &__search {
-            order: 3;
-            position: relative;
-            margin-right: 40px;
-
-            &-toggle {
-                display: block;
-            }
-
-            &-field {
-                position: absolute;
-                right: 35px;
-                top: 50%;
-                transform: translateY(calc(-50% - 15px));
-                opacity: 1;
-                transition: transform .3s, visibility .3s, opacity .3s;
-                visibility: hidden;
-                opacity: 0;
-            }
-
-            &_active {
-                .header__search-field {
-                    transform: translateY(-50%);
-                    visibility: visible;
-                    opacity: 1;
-                }
-            }
-        }
-
         &__corsine {
             order: 4;
         }
@@ -38,37 +9,6 @@
         &__center {
             padding: 5px 0;
         }
-        
-        &__menu {
-            order: 5;
-            margin: 0;
-            position: relative;
-
-            .menu__list {
-                position: fixed;
-                right: 0;
-                margin-top: 9px;
-                transform: translateX(100%);
-                background: $color-bg;
-                transition: transform .3s;
-                display: block;
-            }
-
-            .menu__link {
-                padding: 15px 30px;
-                color: #f1f1f1;
-            }
-
-            .toggle-menu {
-                display: block;
-            }
-        }
-
-        &__menu.menu_active {
-            .menu__list {
-                transform: translateX(0);
-              }
-        }
 
         &__center {
             &-content {
@@ -77,7 +17,7 @@
         }
 
         &__corsine {
-            margin-left: 0;
+            margin-left: auto;
             margin-right: 20px;
 
             .corsine__content {
@@ -85,26 +25,9 @@
                 width: 400px;
             }
         }
-    
-        &__search {
-            margin-left: auto;
-            margin-right: 20px;
-        }
     }   
     
     @media screen and (max-width: 620px) {
-        &__search {
-            position: initial;
-            
-            &-field {
-                top: 65px;
-                left: 0;
-                width: 100%;
-                border-radius: 2px;
-                padding: 12px;
-            }
-        }
-
         &__corsine {
             .corsine__content {
                 position: fixed;
@@ -130,7 +53,7 @@
 
         &__top {
             &-content {
-                padding: 0;
+                padding: 8px 0;
             }
         }
 
@@ -149,6 +72,10 @@
             &_menu {
                 display: block;
             }
+        }
+
+        .logo {
+            font-size: 32px;
         }
     }
 
